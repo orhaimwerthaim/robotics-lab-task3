@@ -21,5 +21,12 @@ explanation on the different nodes:
    the node receives a MoveCommand message type on the '/move_bot_command' topic.
    MoveCommand has 'direction' string field then can get values of 'counter-clock-wise-rotate' or 'forward', a 'distance' float field that states the distance in degrees/meters the bot should move, and a 'speed' float field in m/s (speed can be positive or nagative).
    the node translate these commands to the turtelbot3 'cmd_vel' topic commands.
-3. task3 ROS node
+3. task3 ROS node is used to make sure we move the blue box.
+   it does it by checking if the blue box is in the frame or by doing a full 360 degrees check every 20 seconds for cases the bot did not move towards the box directly.
+   when the box is found the bot stopps the navigation, pushes the box and then continue to his original destination.
+   
+   
+   techinacal problems i incountered:
+   1. the navigation stack was not able to move the bote. the reason was because the clocks of the PC and bot were not synchronaized. i tried setting the PC to be the NTP server of the bot to sync them but that did not work so i changed the time of the bot to be like the PC ($ date -s '@<epche time>).
+ 
 
