@@ -1,0 +1,11 @@
+<launch>
+
+
+  <include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch">
+    <arg name="map_file" value="/home/or/lab_map_n.yaml"/>
+  </include>
+
+	<node name="bot_controler" pkg="task3" type="bot_move_control.py"/>
+  <node name="publish_colored_object_center" pkg="task3" type="pub_angles_from_colored_obj.py"/>
+	<node name="task3" pkg="task3" type="task3.py" output="screen"/>
+</launch>
