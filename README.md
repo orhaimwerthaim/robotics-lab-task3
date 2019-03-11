@@ -29,6 +29,10 @@ explanation on the different nodes:
    techinacal problems i incountered:
    1. the navigation stack was not able to move the bote. the reason was because the clocks of the PC and bot were not synchronaized. i tried setting the PC to be the NTP server of the bot, that did not work so i manually changed the time of the bot to be like the PC (using '$ date +%s' and '$ date -s '@<epche time>').
     for it to work it is importent to set the 'transform_tolerance' parameter to '15.0' so it want be strict (in local_costmap_params.yaml and global_costmap_params.yaml.
-    2.from some reason when i used the navigation stack the bot was not moving floan
+    2. from some reason when i used the navigation stack the bot was not moving floauntly, and it looked in the RVis GUI like an inflation problem.
+    setting the inflation to 0.0 and restarting the navigation did node did not change this state. only when i checked it in a different day it worked so may be this problem required full restart of the turtlebot/roscore etc.. (even doe it does not make sense).
+    3. when activating the navigation node using a map file the bot initially finds it location but is not fully adjusted with the map walls.
+    after consulting with people that worked with ROS i found that causing the turtelbot to make 1-3 rounds in his place fixes the problem.
+    
  
 
