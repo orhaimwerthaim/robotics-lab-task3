@@ -14,12 +14,14 @@ for running the project:
   
 
 explanation on the different nodes:
-1. pub_angles_from_colored_obj ROS node is getting the bot camera data via the '/usb_cam/image_raw' topic.
-   it publishes the distance of the center of the blue object from the center of the frame via the '/angles_from_colored_object'    topic.
-   it publishes a Float64 msg when 0.0 is for centered and 900000 is for 'object not in frame'.
-2. bot_move_control ROS node is used for controling the turtelbot3 movement not via the navigation stack.
+1. pub_angles_from_colored_obj ROS node: is getting the turtlebot3 camera data via the '/usb_cam/image_raw' topic.
+   it publishes the distance of the center of the blue object from the center of the (camera image) frame via the '/angles_from_colored_object' topic.
+   it publishes a Float64 message, '0.0' is for centered and '900000' is for 'object not in frame'.
+2. bot_move_control ROS node: is used for controlling the turtelbot3 movement not via the navigation stack.
    the node receives a MoveCommand message type on the '/move_bot_command' topic.
-   MoveCommand has 'direction' string field then can get values of 'counter-clock-wise-rotate' or 'forward', a 'distance' float field that states the distance in degrees/meters the bot should move, and a 'speed' float field in m/s (speed can be positive or nagative).
+   MoveCommand has: 
+    A.'direction' (string) field: can get values of 'counter-clock-wise-rotate' or 'forward'.
+    B. 'distance' (float) field: that states the distance in degrees/meters the bot should move, and a 'speed' float field in m/s (speed can be positive or nagative).
    the node translate these commands to the turtelbot3 'cmd_vel' topic commands.
 3. task3 ROS node is used to make sure we move the blue box.
    it does it by checking if the blue box is in the frame or by doing a full 360 degrees check every 20 seconds for cases the bot did not move towards the box directly.
