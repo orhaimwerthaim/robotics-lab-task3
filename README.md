@@ -3,13 +3,13 @@ turtlebot3 navigation and pushing the blue box
 
 for running the project:
 1. put the src folder in your ROS catkin workspace
-2. make sure the your bot and pc ROS_MASTER_URI and ROS_IP parameters are set to the correct IP.
-3. make sure that the time in both your PC and turtlebot3 and in sync 
-    (use '$ date +%s' to see the machine epoche time, and '$ date -s '@<epcheTime>' to set the epochetime).
+2. make sure that your turtlebot3 and PC ROS_MASTER_URI and ROS_IP ENV. parameters are set to the correct IP.
+3. make sure that the time in both your PC and turtlebot3 is synchronized 
+    (use '$ date +%s' to see your machine epoch time, and '$ date -s '@<epochTime>' to set the epoch time on your turtlebot3).
 4. run 'roscore' from your PC. 
 5. run 'roslaunch turtlebot3-camera turtlebot3_camera.launch' from the turtelbot3.
 6. run 'rosrun task3 pub_angles_from_colored_obj.py', 'rosrun task3 bot_move_control.py' and 'rosrun task3 task3.py' from your PC.
-7. set the final navigation destination via RVIs GUI.
+7. set the final navigation destination via RVIz GUI.
   
   
 
