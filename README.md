@@ -27,6 +27,8 @@ explanation on the different nodes:
    
    
    techinacal problems i incountered:
-   1. the navigation stack was not able to move the bote. the reason was because the clocks of the PC and bot were not synchronaized. i tried setting the PC to be the NTP server of the bot to sync them but that did not work so i changed the time of the bot to be like the PC ($ date -s '@<epche time>).
+   1. the navigation stack was not able to move the bote. the reason was because the clocks of the PC and bot were not synchronaized. i tried setting the PC to be the NTP server of the bot, that did not work so i manually changed the time of the bot to be like the PC (using '$ date +%s' and '$ date -s '@<epche time>').
+    for it to work it is importent to set the 'transform_tolerance' parameter to '15.0' so it want be strict (in local_costmap_params.yaml and global_costmap_params.yaml.
+    2.from some reason when i used the navigation stack the bot was not moving floan
  
 
